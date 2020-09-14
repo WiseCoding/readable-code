@@ -40,22 +40,16 @@ function calcCost($pizza_type)
 {
   switch ($pizza_type) {
     case 'marguerita':
-      $cost = 5;
-      break;
+      return 5;
     case 'golden':
-      $cost = 100;
-      break;
+      return 100;
     case 'calzone':
-      $cost = 10;
-      break;
+      return 10;
     case 'hawai':
       throw new Exception('Computer says no');
-      break;
     default:
-      $cost = 'unknown';
-      break;
+      return 'unknown';
   }
-  return $cost;
 }
 
 function orderPizzaForAll()
@@ -65,11 +59,4 @@ function orderPizzaForAll()
   orderPizza('golden', 'students');
 }
 
-function makeAllHappy($decision)
-{
-  if ($decision) {
-    orderPizzaForAll();
-  }
-}
-
-makeAllHappy(true);
+orderPizzaForAll();
