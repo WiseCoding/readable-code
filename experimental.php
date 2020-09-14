@@ -1,39 +1,42 @@
 <?php
 
-function order_pizza($pizza_type, $person)
+function orderPizza($pizza_type, $person)
 {
-  echo 'Creating new order... <br>';
-  $toPrint = 'A ';
-  $toPrint .= $pizza_type;
-  $cost = calc_cost($pizza_type);
+  $cost = calcCost($pizza_type);
+  $address = getAddress($person);
 
-  $address = 'unknown';
-  if ($person == 'koen') {
-    $address = 'a yacht in Antwerp';
-  } elseif ($person == 'manuele') {
-    $address = 'somewhere in Belgium';
-  } elseif ($person == 'students') {
-    $address = 'BeCode office';
-  }
-
-  $toPrint .=   ' pizza should be sent to ' . $person . ". <br>The address: {$address}.";
-  echo $toPrint;
-  echo '<br>';
-  echo 'The bill is €' . $cost . '.<br>';
-  echo "Order finished.<br><br>";
+  echo "Creating new order... <br>
+    A $pizza_type pizza should be sent to $person. <br>
+    The address: $address. <br>
+    The bill is €$cost <br>
+    Order finished.<br>
+    <br>";
 }
 
-function total_price($total)
+function getAddress($person)
+{
+  switch ($person) {
+    case 'koen':
+      return 'a yacht in Antwerp';
+      break;
+    case 'manuele':
+      return 'somewhere in Belgium';
+      break;
+    case 'students':
+      return 'BeCode office';
+      break;
+    default:
+      return 'unknown';
+      break;
+  }
+}
+
+function totalPrice($total)
 {
   return $total;
 }
 
-function test($pizza_type)
-{
-  echo "Test: type is {$pizza_type}. <br>";
-}
-
-function calc_cost($pizza_type)
+function calcCost($pizza_type)
 {
   switch ($pizza_type) {
     case 'marguerita':
@@ -55,18 +58,18 @@ function calc_cost($pizza_type)
   return $cost;
 }
 
-function order_pizza_for_all()
+function orderPizzaForAll()
 {
-  order_pizza('calzone', 'koen');
-  order_pizza('marguerita', 'manuele');
-  order_pizza('golden', 'students');
+  orderPizza('calzone', 'koen');
+  orderPizza('marguerita', 'manuele');
+  orderPizza('golden', 'students');
 }
 
-function make_all_happy($decision)
+function makeAllHappy($decision)
 {
   if ($decision) {
-    order_pizza_for_all();
+    orderPizzaForAll();
   }
 }
 
-make_all_happy(true);
+makeAllHappy(true);
