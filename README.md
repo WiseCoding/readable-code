@@ -2,10 +2,11 @@
 
 # Assignment 📝
 
-> You have been sent abroad for a 10-month work mission. Your family and friends back home ask you about the weather where you live ALL. THE. TIME.
-> Enough is enough, you decide to build a small web application for them so that you can free your time to talk about more interesting topics.
+> Imagine: during your internship, you get handed an existing project to maintain.
+> You try to read into the project, but there's no readme, you see variables like $a or $dontChangeThis and the last developer with project knowledge just left.
+> You wouldn't wish that to anyone, would you? Now, let's see what we can do to prevent this from happening with a focus on readability!
 
-> [Solo Assignment](https://github.com/becodeorg/gnt-yu-3-21/tree/master/2.The-Hill/4.Weather-App) by [BeCode](https://becode.org/) 🎓
+> [Solo Assignment](https://github.com/becodeorg/gnt-yu-3-21/tree/master/Workshops/2.Refactoring-PHP) by [BeCode](https://becode.org/) 🎓
 
 # The Team 👥
 
@@ -15,10 +16,6 @@
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Markdown](https://www.markdownguide.org/)
-
-# Project Management 🔎
-
-- [GitHub Projects](https://github.com/WiseCoding/weather-app/projects/1)
 
 # License 📎
 
