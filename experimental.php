@@ -1,66 +1,62 @@
 <?php
+// TODO: remove $type from order pizza function
 
-// fw = for who
-function order_pizza($pizzatype, $fw)
+function order_pizza($pizza_type, $person)
 {
-
-  $type = $pizzatype;
+  $type = $pizza_type;
   echo 'Creating new order... <br>';
   $toPrint = 'A ';
-  $toPrint .= $pizzatype;
-  $p = calc_cts($type);
+  $toPrint .= $pizza_type;
+  $cost = calc_cost($type);
 
   $address = 'unknown';
-  if ($fw == 'koen') {
+  if ($person == 'koen') {
     $address = 'a yacht in Antwerp';
-  } elseif ($fw == 'manuele') {
+  } elseif ($person == 'manuele') {
     $address = 'somewhere in Belgium';
-  } elseif ($fw == 'students') {
+  } elseif ($person == 'students') {
     $address = 'BeCode office';
   }
 
-  $toPrint .=   ' pizza should be sent to ' . $fw . ". <br>The address: {$address}.";
+  $toPrint .=   ' pizza should be sent to ' . $person . ". <br>The address: {$address}.";
   echo $toPrint;
   echo '<br>';
-  echo 'The bill is €' . $p . '.<br>';
-
-
-
+  echo 'The bill is €' . $cost . '.<br>';
 
   echo "Order finished.<br><br>";
 }
 
-function total_price($p)
+function total_price($total)
 {
-  return $p;
+  return $total;
 }
 
-function test($p_type)
+function test($pizza_type)
 {
-  echo "Test: type is {$p_type}. <br>";
+  echo "Test: type is {$pizza_type}. <br>";
 }
 
-function calc_cts($p_type)
+function calc_cost($pizza_type)
 {
   $cst = 'unknown';
 
-  if ($p_type == 'marguerita') {
-    $cst = 5;
+  if ($pizza_type == 'marguerita') {
+    $cost = 5;
   } else {
-    if ($p_type == 'golden') {
-      $cst = 100;
+    if ($pizza_type == 'golden') {
+      $cost = 100;
     }
 
-    if ($p_type == 'calzone') {
-      $cst = 10;
+    if ($pizza_type == 'calzone') {
+      $cost = 10;
     }
 
-    if ($p_type == 'hawai') {
+    if ($pizza_type == 'hawai') {
       throw new Exception('Computer says no');
     }
   }
 
-  return $cst;
+  return $cost;
 }
 
 function order_pizza_for_all()
@@ -72,9 +68,9 @@ function order_pizza_for_all()
   order_pizza('golden', 'students');
 }
 
-function make_all_happy($do_it)
+function make_all_happy($decision)
 {
-  if ($do_it) {
+  if ($decision) {
     order_pizza_for_all();
   } else {
     // Should not do anything when false
